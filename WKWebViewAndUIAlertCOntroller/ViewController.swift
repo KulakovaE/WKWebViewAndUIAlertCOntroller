@@ -12,6 +12,8 @@ import WebKit
 class ViewController: UIViewController, WKNavigationDelegate {
 
     var webView: WKWebView!
+    var progressView: UIProgressView!
+    
     
     override func loadView() {
         webView = WKWebView()
@@ -23,6 +25,17 @@ class ViewController: UIViewController, WKNavigationDelegate {
         super.viewDidLoad()
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Open", style: .plain, target: self, action: #selector(openTapped))
+        
+        let spacer = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        progressView = UIProgressView(progressViewStyle: .default)
+        progressView.sizeToFit()
+        let progressButton = UIBarButtonItem(customView: progressView)
+        
+        let refresh = UIBarButtonItem(barButtonSystemItem: .refresh, target: webView, action: #selector(webView.reload))
+
+        toolbarItems = [progressButton, spacer, refresh]
+        webView.addObserver(self, forKeyPath: #keyPath(WKWebView.estimatedProgress), options: .new, context: nil)
+        navigationController?.isToolbarHidden = false
         
         let url = URL(string: "https://www.hackingwithswift.com")!
         webView.load(URLRequest(url: url))
@@ -45,6 +58,13 @@ class ViewController: UIViewController, WKNavigationDelegate {
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         title = webView.title
+    }
+    
+    //Once you have registered as an observer using KVO, you must implement a method called observeValue().
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        if keyPath == "estimatedProgress" {
+            progressView.progress = Float(webView.estimatedProgress)
+        }
     }
 
 }
