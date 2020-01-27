@@ -9,21 +9,25 @@
 /* Begin PBXBuildFile section */
 		F36804EA23DEE7CA0054361A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36804E923DEE7CA0054361A /* AppDelegate.swift */; };
 		F36804EC23DEE7CA0054361A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36804EB23DEE7CA0054361A /* SceneDelegate.swift */; };
-		F36804EE23DEE7CA0054361A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36804ED23DEE7CA0054361A /* ViewController.swift */; };
+		F36804EE23DEE7CA0054361A /* WKWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36804ED23DEE7CA0054361A /* WKWebViewController.swift */; };
 		F36804F123DEE7CA0054361A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F36804EF23DEE7CA0054361A /* Main.storyboard */; };
 		F36804F323DEE7CD0054361A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F36804F223DEE7CD0054361A /* Assets.xcassets */; };
 		F36804F623DEE7CD0054361A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F36804F423DEE7CD0054361A /* LaunchScreen.storyboard */; };
+		F36804FE23DEFC630054361A /* WebsitesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36804FD23DEFC630054361A /* WebsitesTableViewController.swift */; };
+		F368050423DF28900054361A /* WebSite.swift in Sources */ = {isa = PBXBuildFile; fileRef = F368050323DF28900054361A /* WebSite.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		F36804E623DEE7CA0054361A /* WKWebViewAndUIAlertCOntroller.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WKWebViewAndUIAlertCOntroller.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F36804E923DEE7CA0054361A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F36804EB23DEE7CA0054361A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		F36804ED23DEE7CA0054361A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F36804ED23DEE7CA0054361A /* WKWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKWebViewController.swift; sourceTree = "<group>"; };
 		F36804F023DEE7CA0054361A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F36804F223DEE7CD0054361A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F36804F523DEE7CD0054361A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F36804F723DEE7CD0054361A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F36804FD23DEFC630054361A /* WebsitesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebsitesTableViewController.swift; sourceTree = "<group>"; };
+		F368050323DF28900054361A /* WebSite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSite.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +60,49 @@
 		F36804E823DEE7CA0054361A /* WKWebViewAndUIAlertCOntroller */ = {
 			isa = PBXGroup;
 			children = (
-				F36804E923DEE7CA0054361A /* AppDelegate.swift */,
-				F36804EB23DEE7CA0054361A /* SceneDelegate.swift */,
-				F36804ED23DEE7CA0054361A /* ViewController.swift */,
-				F36804EF23DEE7CA0054361A /* Main.storyboard */,
-				F36804F223DEE7CD0054361A /* Assets.xcassets */,
-				F36804F423DEE7CD0054361A /* LaunchScreen.storyboard */,
+				F368050823DF2F430054361A /* SupportingFiles */,
+				F368050523DF2EDB0054361A /* Controller */,
+				F368050623DF2F300054361A /* View */,
+				F368050723DF2F380054361A /* Model */,
 				F36804F723DEE7CD0054361A /* Info.plist */,
 			);
 			path = WKWebViewAndUIAlertCOntroller;
+			sourceTree = "<group>";
+		};
+		F368050523DF2EDB0054361A /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F36804ED23DEE7CA0054361A /* WKWebViewController.swift */,
+				F36804FD23DEFC630054361A /* WebsitesTableViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		F368050623DF2F300054361A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F36804EF23DEE7CA0054361A /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F368050723DF2F380054361A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F368050323DF28900054361A /* WebSite.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F368050823DF2F430054361A /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				F36804E923DEE7CA0054361A /* AppDelegate.swift */,
+				F36804EB23DEE7CA0054361A /* SceneDelegate.swift */,
+				F36804F223DEE7CD0054361A /* Assets.xcassets */,
+				F36804F423DEE7CD0054361A /* LaunchScreen.storyboard */,
+			);
+			path = SupportingFiles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,9 +176,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F36804EE23DEE7CA0054361A /* ViewController.swift in Sources */,
+				F36804EE23DEE7CA0054361A /* WKWebViewController.swift in Sources */,
 				F36804EA23DEE7CA0054361A /* AppDelegate.swift in Sources */,
 				F36804EC23DEE7CA0054361A /* SceneDelegate.swift in Sources */,
+				F368050423DF28900054361A /* WebSite.swift in Sources */,
+				F36804FE23DEFC630054361A /* WebsitesTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
