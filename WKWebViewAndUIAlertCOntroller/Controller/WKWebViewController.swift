@@ -16,7 +16,7 @@ class WKWebViewController: UIViewController, WKNavigationDelegate {
     var urlPath: String?
     var dataSource: DataSource?
     
-    var websites = ["apple.com", "hackingwithswift.com", "medium.com", "www.svt.se", "www.swiftbysundell.com"]
+    //var websites = ["apple.com", "hackingwithswift.com", "medium.com", "www.svt.se", "www.swiftbysundell.com"]
     
     override func loadView() {
         webView = WKWebView()
@@ -56,9 +56,12 @@ class WKWebViewController: UIViewController, WKNavigationDelegate {
     @objc func openTapped() {
         let ac = UIAlertController(title: "Open page…", message: nil, preferredStyle: .actionSheet)
         
-        for website in websites {
-            ac.addAction(UIAlertAction(title: website, style: .default, handler: openPage))
+        if let dataSource = dataSource {
+            for website in dataSource.websites {
+                ac.addAction(UIAlertAction(title: website.url, style: .default, handler: openPage))
+            }
         }
+        
         
         ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
         ac.popoverPresentationController?.barButtonItem = self.navigationItem.rightBarButtonItem
@@ -66,7 +69,7 @@ class WKWebViewController: UIViewController, WKNavigationDelegate {
     }
     
     func openPage(action: UIAlertAction) {
-        let url = URL(string: "https://" + action.title!)!
+        let url = URL(string: action.title!)!
         webView.load(URLRequest(url: url))
     }
     
@@ -82,17 +85,17 @@ class WKWebViewController: UIViewController, WKNavigationDelegate {
     }
     
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
-        let url = navigationAction.request.url
-        
-        if let host = url?.host {
-            for website in websites {
-                if host.contains(website) {
+//        let url = navigationAction.request.url
+//
+//        if let host = url?.host {
+//            for website in dataSource.websites {
+//                if host.contains(website) {
                     decisionHandler(.allow)
-                    return
-                }
-            }
-        }
-        decisionHandler(.cancel)
+//                    return
+//                }
+//            }
+//        }
+ //       decisionHandler(.cancel)
     }
 }
 

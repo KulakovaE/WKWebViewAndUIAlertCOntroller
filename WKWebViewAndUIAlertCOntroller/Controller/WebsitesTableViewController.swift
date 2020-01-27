@@ -39,6 +39,7 @@ class WebsitesTableViewController: UITableViewController {
         if let vc = storyboard?.instantiateViewController(identifier: "WKWebViewController") as? WKWebViewController {
             //let cell = tableView.cellForRow(at: indexPath)
             vc.urlPath = dataSource.websites[indexPath.row].url
+            vc.dataSource = dataSource
             navigationController?.pushViewController(vc, animated: true)
         }
     }
